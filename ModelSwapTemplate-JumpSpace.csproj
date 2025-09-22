@@ -1,0 +1,663 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<RootNamespace>ModelSwapTemplate_JumpSpace</RootNamespace>
+		<LangVersion>default</LangVersion>
+		<IsPackable>false</IsPackable>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<AssemblyName>ModelSwapTemplate_JumpSpace</AssemblyName>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp-firstpass">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Assembly-CSharp-firstpass.dll</HintPath>
+		</Reference>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppAk.Wwise.Api.WAAPI">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppAk.Wwise.Api.WAAPI.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppAK.Wwise.Unity.Addressables">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppAK.Wwise.Unity.Addressables.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppAK.Wwise.Unity.API">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppAK.Wwise.Unity.API.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppAK.Wwise.Unity.API.WwiseTypes">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppAK.Wwise.Unity.API.WwiseTypes.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppAK.Wwise.Unity.MonoBehaviour">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppAK.Wwise.Unity.MonoBehaviour.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppAK.Wwise.Unity.Timeline">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppAK.Wwise.Unity.Timeline.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cppandywiecko.BurstTriangulator">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2Cppandywiecko.BurstTriangulator.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppAntlr3.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppAntlr3.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppAstarPathfindingProject">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppAstarPathfindingProject.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppBacktrace.Unity">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppBacktrace.Unity.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppBewildered.SmartLibrary.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppBewildered.SmartLibrary.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppBolt.Addons.Community.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppBolt.Addons.Community.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppBolt.Core.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppBolt.Core.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppBolt.Flow.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppBolt.Flow.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppClipper2Lib">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppClipper2Lib.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cppcom.rlabrecque.steamworks.net">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2Cppcom.rlabrecque.steamworks.net.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppConsoleProDebug">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppConsoleProDebug.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppDrawing">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppDrawing.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppEpicOnlineServices">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppEpicOnlineServices.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppHighSpeedPriorityQueue">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppHighSpeedPriorityQueue.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Bootstrap">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Bootstrap.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.BugReporting">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.BugReporting.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Build">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Build.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.CollisionGenerator">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.CollisionGenerator.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Common.Collision">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Common.Collision.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Common">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Common.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.DevDraw">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.DevDraw.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Framework.Networking.LayerImpl.Legacy">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Framework.Networking.LayerImpl.Legacy.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Framework.Networking.LegacyBridge">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Framework.Networking.LegacyBridge.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.ImGui">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.ImGui.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.ImGui.Unity">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.ImGui.Unity.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Lifetime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Lifetime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Logging">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Logging.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Online.Epic">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Online.Epic.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Online.User.IdentityProvider.Development">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Online.User.IdentityProvider.Development.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Presentation">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Presentation.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.ProcessRunner">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.ProcessRunner.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Service.KinematicCharacterController">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Service.KinematicCharacterController.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Services">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Services.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Simulation.Data">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Simulation.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Simulation">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Simulation.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.TelemetrySettings">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.TelemetrySettings.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Utilities.Audio">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Utilities.Audio.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Utilities">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Utilities.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsake.Wwise">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsake.Wwise.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKeepsakeObject">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKeepsakeObject.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppKinematicCharacterController">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppKinematicCharacterController.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppLegacyNetwork">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppLegacyNetwork.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppLudiq.Core.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppLudiq.Core.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppLudiq.Graphs.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppLudiq.Graphs.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMessagePack.Annotations">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMessagePack.Annotations.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMessagePack">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMessagePack.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.Bcl.TimeProvider">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Bcl.TimeProvider.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.Extensions.DependencyInjection.Abstractions">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.Extensions.DependencyInjection">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.DependencyInjection.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.Extensions.Logging.Abstractions">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.Logging.Abstractions.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.Extensions.Logging">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.Logging.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.Extensions.Options">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.Options.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.Extensions.Primitives">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.Primitives.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.IO.RecyclableMemoryStream">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.IO.RecyclableMemoryStream.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMicrosoft.NET.StringTools">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.NET.StringTools.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMK.Glow">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMK.Glow.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppMono.Security">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppMono.Security.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cppmscorlib">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppNetworking.Service.Netcode">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppNetworking.Service.Netcode.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppNetworkStateDiff">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppNetworkStateDiff.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppNewtonsoft.Json">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppNewtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppPackageTools">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppPackageTools.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppPathfinding.Ionic.Zip.Reduced">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppPathfinding.Ionic.Zip.Reduced.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppShapesRuntime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppShapesRuntime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppShapesSamples">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppShapesSamples.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Configuration">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Configuration.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Core">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Data">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Diagnostics.DiagnosticSource">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Diagnostics.DiagnosticSource.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Drawing">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Drawing.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.IO.Compression">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.IO.Compression.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.IO.Hashing">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.IO.Hashing.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Net.Http">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Net.Http.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Numerics">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Numerics.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Runtime.CompilerServices.Unsafe">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Runtime.CompilerServices.Unsafe.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Runtime.Serialization">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Text.Encodings.Web">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Text.Encodings.Web.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Text.Json">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Text.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Threading.Channels">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Threading.Channels.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Xml">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Xml.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Xml.Linq">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppSystem.Xml.Linq.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppToolbox">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppToolbox.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppUniRx">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppUniRx.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppUniTask.Addressables">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppUniTask.Addressables.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppUniTask">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppUniTask.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppUniTask.DOTween">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppUniTask.DOTween.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppUniTask.Linq">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppUniTask.Linq.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppUniTask.TextMeshPro">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppUniTask.TextMeshPro.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppUtf8StringInterpolation">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppUtf8StringInterpolation.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppWhinarn.UnityMeshSimplifier.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppWhinarn.UnityMeshSimplifier.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppZLogger">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppZLogger.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppZString">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2CppZString.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cpp__Generated">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Il2Cpp__Generated.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Addressables">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Addressables.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Animation.Rigging">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Animation.Rigging.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Burst">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Burst.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Burst.Unsafe">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Burst.Unsafe.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Collections">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Collections.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Collections.LowLevel.ILSupport">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Entities">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Entities.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Entities.Hybrid">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Entities.Hybrid.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Entities.Hybrid.HybridComponents">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Entities.Hybrid.HybridComponents.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.InputSystem">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.InputSystem.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.InputSystem.ForUI">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Localization">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Localization.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Mathematics">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Mathematics.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Mathematics.Extensions">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Mathematics.Extensions.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Multiplayer.MetricTypes">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Multiplayer.MetricTypes.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Multiplayer.NetStats">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Multiplayer.NetStats.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Multiplayer.NetStatsReporting">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Multiplayer.NetStatsReporting.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Multiplayer.NetworkProfiler.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Multiplayer.NetworkProfiler.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Multiplayer.NetworkSolutionInterface">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Multiplayer.NetworkSolutionInterface.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Netcode.Adapter.UTP">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Netcode.Adapter.UTP.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Netcode.Components">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Netcode.Components.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Netcode.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Netcode.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Networking.Transport">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Networking.Transport.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ProBuilder">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.ProBuilder.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ProBuilder.KdTree">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.ProBuilder.KdTree.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ProBuilder.Poly2Tri">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.ProBuilder.Poly2Tri.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Profiling.Core">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Profiling.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.Core.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.ResourceManager">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.ResourceManager.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Scenes">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Scenes.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Serialization">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Serialization.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.TextMeshPro">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Timeline">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Timeline.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Transforms">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Transforms.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.Transforms.Hybrid">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.Transforms.Hybrid.dll</HintPath>
+		</Reference>
+		<Reference Include="Unity.VisualEffectGraph.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AccessibilityModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.AccessibilityModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AIModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.AIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AndroidJNIModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.AndroidJNIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AnimationModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.AnimationModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ARModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.ARModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AssetBundleModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.AudioModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.AudioModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ClothModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.ClothModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ContentLoadModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.ContentLoadModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CrashReportingModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.CrashReportingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.DirectorModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.DirectorModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.DSPGraphModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.DSPGraphModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GameCenterModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.GameCenterModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GIModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.GIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.GridModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.GridModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.HotReloadModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.HotReloadModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ImageConversionModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.ImageConversionModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.IMGUIModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.IMGUIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.InputLegacyModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.InputLegacyModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.InputModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.InputModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.JSONSerializeModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.JSONSerializeModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.LocalizationModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.LocalizationModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.NVIDIAModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.NVIDIAModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ParticleSystemModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.ParticleSystemModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PerformanceReportingModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.PerformanceReportingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.Physics2DModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.Physics2DModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PhysicsModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.PhysicsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ProfilerModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.ProfilerModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.PropertiesModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.PropertiesModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ScreenCaptureModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.ScreenCaptureModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SharedInternalsModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.SharedInternalsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SpriteMaskModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.SpriteMaskModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SpriteShapeModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.SpriteShapeModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.StreamingModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.StreamingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SubstanceModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.SubstanceModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.SubsystemsModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.SubsystemsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TerrainModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.TerrainModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TerrainPhysicsModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextCoreFontEngineModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextCoreTextEngineModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TextRenderingModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TilemapModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.TilemapModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.TLSModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.TLSModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UIElementsModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UIElementsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UIModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UmbraModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UmbraModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityAnalyticsModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityConnectModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityConnectModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityCurlModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityCurlModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityTestProtocolModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestAudioModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestTextureModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UnityWebRequestWWWModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VehiclesModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.VehiclesModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VFXModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.VFXModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VideoModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.VideoModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.VRModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.VRModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.WindModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.WindModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.XRModule">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\Il2CppAssemblies\UnityEngine.XRModule.dll</HintPath>
+		</Reference>
+		<Reference Include="MelonLoader">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\net6\MelonLoader.dll</HintPath>
+		</Reference>
+		<Reference Include="0Harmony">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\net6\0Harmony.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppInterop.Runtime">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppInterop.Common">
+			<HintPath>D:\SteamLibrary\steamapps\common\JumpSpace\MelonLoader\net6\Il2CppInterop.Common.dll</HintPath>
+		</Reference>
+
+	</ItemGroup>
+
+	<PropertyGroup>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="Core.cs" />
+	</ItemGroup>
+	
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;D:\SteamLibrary\steamapps\common\JumpSpace\Mods&quot;" />
+	</Target>
+</Project>
