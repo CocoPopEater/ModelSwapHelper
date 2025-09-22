@@ -30,6 +30,7 @@ Part 2: Setting up the mod
   "Assets/Texture.png" - The path of your texture within the bundle, this can be found beside the Adressable checkbox in unity
   
   "ObjectName" - The name of the GameObject which contains the SkinnedMeshRenderer (This can be found with the [Unity Explorer Mod](https://github.com/sinai-dev/UnityExplorer) - it must contain a skinnedmeshrenderer)
+  3. Build the solution, and copy the .dll to your Mods folder
 
 Optional:
 Within the template i have include many commented out debugging loggers, if your mod isnt working i would reccomend you re-enable these to locate the issue.
