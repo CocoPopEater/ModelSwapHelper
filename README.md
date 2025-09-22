@@ -34,3 +34,8 @@ Part 2: Setting up the mod
 Optional:
 Within the template i have include many commented out debugging loggers, if your mod isnt working i would reccomend you re-enable these to locate the issue.
 For more advanced textures, you may also want to include other maps, this can be done by reenabling a commented out portion, and replace ("_T2", null) with ("_T2", variableName) where variableName is another loaded texture (see line 86)
+
+Common Issues:
+Incorrect model rotation - The model has likely been exported with differant transform settings to Jump Space. Import the model into blender, and export it as an fbx setting forward to -Y and up to Z making sure to enable the "Apply Transforms" checkbox.
+
+For any other issues, feel free to dm me on Discord @GraciousCub5622
