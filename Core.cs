@@ -83,6 +83,7 @@ namespace ModelSwapTemplate_JumpSpace
 
             Mesh customMesh = bundle.LoadAsset<Mesh>("Assets/Mesh.fbx");
             Texture2D mainTex = bundle.LoadAsset<Texture2D>("Assets/Texture.png");
+            //Texture2D normalTex = bundle.LoadAsset<Texture2D>("Assets/NormalMap.png");
 
             bundle.Unload(false);
 
@@ -93,7 +94,7 @@ namespace ModelSwapTemplate_JumpSpace
             }
 
             var targets = GameObject.FindObjectsOfType<GameObject>()
-                .Where(go => go.name == "BuddyBot")
+                .Where(go => go.name == "ObjectName")
                 .ToList();
 
             MelonLogger.Msg($"Found {targets.Count} target object(s).");
@@ -109,7 +110,12 @@ namespace ModelSwapTemplate_JumpSpace
                     if (mainTex != null && mats[0].HasProperty("_T1"))
                         mats[0].SetTexture("_T1", mainTex);
 
+                    /*
+                    if (normalTex != null && mats[1].HasProperty("_T2"))
+                        mats[0].SetTexture("_T2", normalTex);
+                    */
 
+                    
                     /*foreach (var mat in mats)
                     {
                         if (mat.HasProperty("_T2")) mat.SetTexture("_T2", null); //Normal map
