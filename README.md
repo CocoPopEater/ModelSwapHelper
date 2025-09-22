@@ -14,13 +14,21 @@ Part 1: Creating an assetbundle
 Part 2: Setting up the mod
 1. Install the Template and open the .csproject in an IDE of your choice
 2. Swap out the following details:
+   
   "ModName" - Your mod's name
+
   "version" - The Version of your mod
+  
   "Author" - Your name
+  
   "Mod Inititialized." - I recommend you add your mods name here
+  
   "BundleName.bundle" - The name of your custom assetbundle that has been copied to your Mods folder
+  
   "Assets/Mesh.fbx" - The path of your mesh within the bundle, this can be found beside the Adressable checkbox in unity
+  
   "Assets/Texture.png" - The path of your texture within the bundle, this can be found beside the Adressable checkbox in unity
+  
   "ObjectName" - The name of the GameObject which contains the SkinnedMeshRenderer (This can be found with the [Unity Explorer Mod](https://github.com/sinai-dev/UnityExplorer) - it must contain a skinnedmeshrenderer)
 
 Optional:
