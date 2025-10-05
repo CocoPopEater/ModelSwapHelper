@@ -55,4 +55,4 @@ SwapDetailsCode's are:
 - SWAP_DETAILS_NULL - The object provided to "AddSwapDetails()" was null
 - DUPLICATE_SWAP_DETAILS - You tried to register the same object multiple times
 
-In all of the above responses (except SUCCESS), ModelSwapHelper will not swap assets
+In all of the above responses (except SUCCESS and DUPLICATE_SWAP_DETAILS), ModelSwapHelper will not swap assets
