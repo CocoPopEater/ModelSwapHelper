@@ -1,0 +1,14 @@
+﻿namespace ModelSwapHelper;
+
+public enum SwapDetailsCode
+{
+    SUCCESS,
+    MISSING_MOD_NAME,
+    MISSING_BUNDLE_NAME,
+    MISSING_MESH_ADDRESS,
+    MISSING_TEXTURE_ADDRESS,
+    MISSING_OBJECT_NAME,
+    SWAP_DETAILS_NULL,
+    DUPLICATE_SWAP_DETAILS,
+    UNKNOWN
+}

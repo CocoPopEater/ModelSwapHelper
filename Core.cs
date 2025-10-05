@@ -4,13 +4,20 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using System.Text;
+using Il2CppEpic.OnlineServices;
+using Il2CppKeepsake.HyperSpace.GameMode.Logic;
+using Il2CppNewtonsoft.Json.Utilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
-[assembly: MelonInfo(typeof(ModelSwapTemplate_JumpSpace.Core), "ModName", "Version", "Author", null)]
+[assembly: MelonInfo(typeof(ModelSwapHelper.Core), "ModelSwapHelper", "0.0.0", "CocoPopEater", null)]
 [assembly: MelonGame("Keepsake Games", "Jump Space")]
+[assembly: MelonColor(255,0,255,0)]
 
-namespace ModelSwapTemplate_JumpSpace
+namespace ModelSwapHelper
 {
     public class Core : MelonMod
     {
@@ -19,7 +26,7 @@ namespace ModelSwapTemplate_JumpSpace
 
         public override void OnInitializeMelon()
         {
-            MelonLogger.Msg("Mod initialized.");
+            MelonLogger.Msg("ModelSwapHelper initialized.");
         }
 
         public override void OnLateUpdate()
@@ -28,7 +35,7 @@ namespace ModelSwapTemplate_JumpSpace
             if (Keyboard.current != null && Keyboard.current.f5Key.wasPressedThisFrame)
             {
                 MelonLogger.Msg("Manual reload triggered.");
-                MelonCoroutines.Start(DelayedActivate());
+                Helper.GetInstance().StartActivate();
                 reloadMessageStart = Time.time;
                 MelonEvents.OnGUI.Subscribe(DrawReloadText, 100);
             }
@@ -50,23 +57,34 @@ namespace ModelSwapTemplate_JumpSpace
         public override void OnSceneWasInitialized(int buildIndex, string sceneName)
         {
             //debugging - MelonLogger.Msg($"Scene initialized: {sceneName} ({buildIndex})");
-            MelonCoroutines.Start(DelayedActivate());
-        }
-
-        private IEnumerator DelayedActivate()
-        {
-            yield return new WaitForSeconds(3f);
-            MeshSwap.SwapMesh();
+            Helper.GetInstance().StartActivate();
         }
     }
 
+    
+
     public static class MeshSwap
     {
-        public static void SwapMesh()
+        public static void SwapMesh(SwapDetails details)
         {
+            /*StringBuilder startLog = new StringBuilder();
+            startLog.AppendLine(details.ModName);
+            foreach (string objectName in details.ObjectNames)
+            {
+                startLog.AppendLine(objectName);
+            }
+            
+            MelonLogger.Msg($"Swapping Mesh, Details: \n{startLog.ToString()}");*/
+
+            string bundleFileName = details.BundleName;
+            if (!bundleFileName.EndsWith(".bundle"))
+            {
+                bundleFileName = string.Concat(details.BundleName, ".bundle");
+            }
+            
             string bundlePath = Path.Combine(
                 MelonEnvironment.ModsDirectory,
-                "BundleName.bundle"
+                bundleFileName
             );
 
             if (!File.Exists(bundlePath))
@@ -82,24 +100,56 @@ namespace ModelSwapTemplate_JumpSpace
                 return;
             }
 
-            Mesh customMesh = bundle.LoadAsset<Mesh>("Assets/Mesh.fbx");
-            Texture2D mainTex = bundle.LoadAsset<Texture2D>("Assets/Texture.png");
-            //Texture2D normalTex = bundle.LoadAsset<Texture2D>("Assets/NormalMap.png");
+            Mesh customMesh = bundle.LoadAsset<Mesh>(details.MeshAddress);
+            Texture2D mainTex = bundle.LoadAsset<Texture2D>(details.TextureAddress);
+            Texture2D normalTex = null;
+            if (details.NormalAddress != null)
+            {
+                normalTex = bundle.LoadAsset<Texture2D>(details.NormalAddress);
+            }
 
             bundle.Unload(false);
 
             if (customMesh == null)
             {
-                //debugging - MelonLogger.Error("Custom mesh not found in bundle.");
+                MelonLogger.Error($"Custom mesh not found in bundle.\nMod: {details.ModName}\nBundle: {details.BundleName}\nMeshAddress: {details.MeshAddress}");
                 return;
             }
+            
+            List<GameObject> targets = new List<GameObject>();
 
-            var targets = GameObject.FindObjectsOfType<GameObject>()
-                .Where(go => go.name == "ObjectName")
-                .ToList();
+            
+            
+            
+            
+
+            foreach (string objectName in details.ObjectNames)
+            {
+                targets.AddRange(GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
+                                .Where(go => go.name == objectName)
+                                .ToList<GameObject>());
+            }
 
             MelonLogger.Msg($"Found {targets.Count} target object(s).");
 
+            if (details.DeactivateObjectNames != null && details.DeactivateObjectNames.Count > 0)
+            {
+                List<GameObject> deactivateTargets = new List<GameObject>();
+                foreach (string deacName in details.DeactivateObjectNames)
+                {
+                    deactivateTargets.AddRange(GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
+                        .Where(go => go.name == deacName));
+                }
+
+                foreach (GameObject obj in deactivateTargets)
+                {
+                    if (obj.activeSelf)
+                    {
+                        obj.SetActive(false);
+                    }
+                }
+            }
+            
             foreach (var targetObj in targets)
             {
                 var smr = targetObj.GetComponent<SkinnedMeshRenderer>();
@@ -110,41 +160,17 @@ namespace ModelSwapTemplate_JumpSpace
 
                     if (mainTex != null && mats[0].HasProperty("_T1"))
                         mats[0].SetTexture("_T1", mainTex);
-
-                    /*
+                    
                     if (normalTex != null && mats[1].HasProperty("_T2"))
                         mats[0].SetTexture("_T2", normalTex);
-                    */
-
                     
-                    /*foreach (var mat in mats)
-                    {
-                        if (mat.HasProperty("_T2")) mat.SetTexture("_T2", null); //Normal map
-                        if (mat.HasProperty("_T3")) mat.SetTexture("_T3", null); //Emission map
-                        if (mat.HasProperty("_M")) mat.SetTexture("_M", null); //Metallic map
-
-                        if (mat.HasProperty("_ColorMainLookup")) mat.SetTexture("_ColorMainLookup", null);
-                        if (mat.HasProperty("_ColorSecondaryLookup")) mat.SetTexture("_ColorSecondaryLookup", null);
-                        if (mat.HasProperty("_ColorDetailLookup")) mat.SetTexture("_ColorDetailLookup", null);
-                    }
-
-                    //This is a temporary measure, certain models may be ultra reflective with their default shader:
-                    Shader unlitShader = Shader.Find("Unlit/Texture");
-                    if (unlitShader != null)
-                    {
-                        foreach (var mat in mats)
-                        {
-                            mat.shader = unlitShader;
-                            if (bodyTex != null)
-                                mat.SetTexture("_MainTex", bodyTex);
-                        }
-                    }*/
-
                     smr.materials = mats;
                 }
             }
         }
-
+        
+        
+        
         /// <summary>
         /// Moves the mesh without moving the game object
         /// </summary>
