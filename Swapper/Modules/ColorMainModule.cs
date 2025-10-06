@@ -1,0 +1,36 @@
+﻿using MelonLoader;
+using UnityEngine;
+
+namespace ModelSwapHelper.Swapper.Modules;
+
+public class ColorMainModule : BaseModule
+{
+    public ColorMainModule(string assetPath) : base(assetPath)
+    {
+    }
+    
+    public ColorMainModule() : base(string.Empty)
+    {
+        
+    }
+
+    public override void Apply(GameObject obj, AssetBundle bundle)
+    {
+        Texture2D colorMainTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
+        if (colorMainTexture == null)
+        {
+            MelonLogger.Error($"Failed to load Color Main Texture2D: {this.AssetPath}");
+            return;
+        }
+        
+        var smr = obj.GetComponent<SkinnedMeshRenderer>();
+        if (smr == null) return;
+        
+        var mats = smr.materials;
+        if(mats == null || mats.Length == 0) return;
+        foreach (var mat in mats)
+        {
+            if(mat.HasProperty("_ColorMainLookup")) mat.SetTexture("_ColorMainLookup", colorMainTexture);
+        }
+    }
+}

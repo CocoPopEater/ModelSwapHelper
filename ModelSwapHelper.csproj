@@ -648,8 +648,21 @@
 
 	<ItemGroup>
 		<Compile Include="Core.cs" />
-		<Compile Include="Helper.cs" />
+		<Compile Include="MeshUtils.cs" />
 		<Compile Include="SwapDetailsCode.cs" />
 		<Compile Include="SwapDetails.cs" />
+		<Compile Include="Swapper\BundleManager.cs" />
+		<Compile Include="Swapper\Modules\Base\IModule.cs" />
+		<Compile Include="Swapper\Modules\Base\BaseModule.cs" />
+		<Compile Include="Swapper\Modules\ColorDetailModule.cs" />
+		<Compile Include="Swapper\Modules\ColorMainModule.cs" />
+		<Compile Include="Swapper\Modules\ColorSecondaryModule.cs" />
+		<Compile Include="Swapper\Modules\EmmisionsModule.cs" />
+		<Compile Include="Swapper\Modules\MeshModule.cs" />
+		<Compile Include="Swapper\Modules\MetallicModule.cs" />
+		<Compile Include="Swapper\Modules\NormalsModule.cs" />
+		<Compile Include="Swapper\Modules\Texture2DModule.cs" />
+		<Compile Include="Swapper\SwapperManager.cs" />
+		<Compile Include="Swapper\Swapper.cs" />
 	</ItemGroup>
 </Project>

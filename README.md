@@ -5,54 +5,58 @@ This is an abstraction based on this asset swap template: https://github.com/Sam
 ```
 [assembly: MelonAdditionalDependencies("ModelSwapHelper")]
 
+
 namespace YourMod
 {
     public class Core : MelonMod
     {
         public override void OnInitializeMelon()
         {
-            SwapDetailsCode code = ModelSwapHelper.Helper.GetInstance().AddSwapDetails(new SwapDetails
+            Swapper swapper = new Swapper
             {
-                ModName = "YourModName",
-                BundleName = "BundleName",
-                MeshAddress = "Path/To/Your/Model.fbx",
-                TextureAddress = "Path/To/Your/Texture.png",
-                ObjectNames = new List<string>
+                ModName = "TestMod1",
+                SwapperName = "Any Name You Want",
+                ObjectNames = new List<string>([
+                    "ObjectName1",
+                    "ObjectName2"
+                ]),
+                BundleName = "YourBundle.bundle",
+                Modules = new List<IModule>
                 {
-                    "BuddyBot",
-                    "PF_BuddyBot"
+                    new MeshModule
+                        {
+                            AssetPath = "Path/To/Your/Model.fbx",
+                        },
+                    new Texture2DModule("Path/To/Your/Texture.png")
                 },
-                DeactivateObjectNames = new List<string>
-                {
-                    "BuddyBotThruster"
-                }
-            });
-            MelonLogger.Msg($"YourMod Initialized with code {code.ToString()}");
+                Deactivations = new List<string>([
+                    "SomeObjectNameYouWantDeactivated"
+                    ])
+            };
+            Guid guid = ModelSwapHelper.Swapper.SwapHandler.GetInstance().AddSwapper(swapper);
+            
+            MelonLogger.Msg($"YourMod Initialized");
         }
     }
 }
 ```
-The above code will request that ModelSwapHelper swaps the model for BuddyBot and PF_BuddyBot, while deactivating the BuddyBotThruster GameObject.
 
-Required parameters for SwapDetails are:
+# Required Properties:
 - string ModName
+  - This ensures that if there are issues, then logging can point out which mod is failing
 - string BundleName
-- string MeshAddress
-- string TextureAddress
+  - The name of the bundle you would like this Swapper to operate with. The swapper will automatically validate the format of this to ensure it ends with ".bundle", and if it doesn't then it will implicitly concat ".bundle". 
 - List&lt;string&gt; ObjectNames
+  - A list of object names that this swapper should swap.
+- List&lt;IModule&gt; Modules
+  - A list of module implementations that will run one after the other to affect each Object.
 
-Optional Parameters for SwapDetails are:
-- string NormalAddress
-- List&lt;string&gt; DeactivateObjects
+If any of the above properties are null or empty, Validate() will fail and the swapper will not function.
 
-SwapDetailsCode's are:
-- SUCCESS - Your request succeeded with no issues
-- MISSING_MOD_NAME - You didn't provide your mod name
-- MISSING_BUNDLE_NAME - You didn't provide your bundle name
-- MISSING_MESH_ADDRESS - You didn't provide the address to your model within the bundle
-- MISSING_TEXTURE_ADDRESS - You didn't provide the address to your model within the bundle
-- MISSING_OBJECT_NAME - The ObjectNames list provided was either null or empty
-- SWAP_DETAILS_NULL - The object provided to "AddSwapDetails()" was null
-- DUPLICATE_SWAP_DETAILS - You tried to register the same object multiple times
+# Optional Parameters:
+- List&lt;string&gt; Deactivations
+  - A list of object names that you would like to deactivate.
 
-In all of the above responses (except SUCCESS and DUPLICATE_SWAP_DETAILS), ModelSwapHelper will not swap assets
+Currently, this project only functions with objects that are loaded on scene initialization and does not currently support moving meshes. There are plans to improve this project to rectify both of these shortcomings.
+
+Many thanks to https://github.com/SamGarratt17 @graciouscub5622 on discord for his Asset Swap Template, upon which this entire project is based
