@@ -2,6 +2,10 @@
 
 This is an abstraction based on this asset swap template: https://github.com/SamGarratt17/ModelSwapTemplate-JumpSpace/tree/master for the game "Jump Space".
 
+This is intended for use by mod developers and will have no effect if installed alone.
+
+To use this as a developer you will need to add ModelSwapLib.dll as a project reference
+
 ```
 [assembly: MelonAdditionalDependencies("ModelSwapLib")]
 
@@ -14,7 +18,7 @@ namespace YourMod
         {
             Swapper swapper = new Swapper
             {
-                ModName = "TestMod1",
+                ModName = "YourModName",
                 SwapperName = "Any Name You Want",
                 ObjectNames = new List<string>([
                     "ObjectName1",
