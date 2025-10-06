@@ -49,7 +49,7 @@ namespace YourMod
 - List&lt;string&gt; ObjectNames
   - A list of object names that this swapper should swap.
 - List&lt;IModule&gt; Modules
-  - A list of module implementations that will run one after the other to affect each Object.
+  - A list of module implementations that will run one after the other to affect each Object. As shown in the code example above you may instantiate a module using either a parameter or a parameterless constructor.
 
 If any of the above properties are null or empty, Validate() will fail and the swapper will not function.
 
