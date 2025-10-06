@@ -1,7 +1,7 @@
 ﻿using MelonLoader;
 using UnityEngine;
 
-namespace ModelSwapHelper.Swapper.Modules;
+namespace ModelSwapLib.Swapper.Modules;
 
 public class Texture2DModule : BaseModule
 {

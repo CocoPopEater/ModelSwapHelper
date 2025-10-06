@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ModelSwapHelper.Swapper.Modules;
+namespace ModelSwapLib.Swapper.Modules;
 
 public class BaseModule : IModule
 {

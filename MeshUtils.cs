@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ModelSwapHelper;
+namespace ModelSwapLib;
 
 public class MeshUtils
 {

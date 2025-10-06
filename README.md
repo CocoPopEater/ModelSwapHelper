@@ -1,9 +1,9 @@
-# Jump Space Model Swap Mod Guide
+# Model Swap Mod Lib
 
-This is an abstraction based on this asset swap template: https://github.com/SamGarratt17/ModelSwapTemplate-JumpSpace/tree/master
+This is an abstraction based on this asset swap template: https://github.com/SamGarratt17/ModelSwapTemplate-JumpSpace/tree/master for the game "Jump Space".
 
 ```
-[assembly: MelonAdditionalDependencies("ModelSwapHelper")]
+[assembly: MelonAdditionalDependencies("ModelSwapLib")]
 
 
 namespace YourMod
@@ -33,7 +33,7 @@ namespace YourMod
                     "SomeObjectNameYouWantDeactivated"
                     ])
             };
-            Guid guid = ModelSwapHelper.Swapper.SwapHandler.GetInstance().AddSwapper(swapper);
+            Guid guid = ModelSwapLib.Swapper.SwapHandler.GetInstance().AddSwapper(swapper);
             
             MelonLogger.Msg($"YourMod Initialized");
         }

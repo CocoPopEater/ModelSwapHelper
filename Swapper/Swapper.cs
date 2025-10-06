@@ -1,9 +1,9 @@
 ﻿using MelonLoader;
-using ModelSwapHelper.Swapper.Modules;
+using ModelSwapLib.Swapper.Modules;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ModelSwapHelper.Swapper;
+namespace ModelSwapLib.Swapper;
 
 public class Swapper
 {

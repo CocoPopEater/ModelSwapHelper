@@ -1,26 +1,13 @@
 ﻿using MelonLoader;
-using MelonLoader.Utils;
-using System.Collections;
-using System.IO;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using Il2CppEpic.OnlineServices;
-using Il2CppInterop.Runtime.InteropTypes.Arrays;
-using Il2CppKeepsake.HyperSpace.GameMode.Logic;
-using Il2CppNewtonsoft.Json.Utilities;
-using ModelSwapHelper.Swapper;
+using ModelSwapLib.Swapper;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Object = UnityEngine.Object;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
 
-[assembly: MelonInfo(typeof(ModelSwapHelper.Core), "ModelSwapHelper", "0.0.0", "CocoPopEater", null)]
+[assembly: MelonInfo(typeof(ModelSwapLib.Core), "ModelSwapLib", "0.0.0", "CocoPopEater", null)]
 [assembly: MelonGame("Keepsake Games", "Jump Space")]
 [assembly: MelonColor(255,0,255,0)]
 
-namespace ModelSwapHelper
+namespace ModelSwapLib
 {
     public class Core : MelonMod
     {
@@ -31,7 +18,7 @@ namespace ModelSwapHelper
         {
             SwapperManager.GetInstance(); // Ensure SwapHandler has been initialized
             BundleManager.GetInstance(); // Ensure BundleManager has been initialized
-            MelonLogger.Msg("ModelSwapHelper initialized.");
+            MelonLogger.Msg("ModelSwapLib initialized.");
         }
 
         public override void OnDeinitializeMelon()

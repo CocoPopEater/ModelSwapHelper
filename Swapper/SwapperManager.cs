@@ -2,7 +2,7 @@
 using MelonLoader;
 using UnityEngine;
 
-namespace ModelSwapHelper.Swapper;
+namespace ModelSwapLib.Swapper;
 
 public class SwapperManager
 {

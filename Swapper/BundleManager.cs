@@ -1,7 +1,7 @@
 ﻿using MelonLoader.Utils;
 using UnityEngine;
 
-namespace ModelSwapHelper.Swapper;
+namespace ModelSwapLib.Swapper;
 
 public class BundleManager
 {
