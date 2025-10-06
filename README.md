@@ -33,7 +33,7 @@ namespace YourMod
                     "SomeObjectNameYouWantDeactivated"
                     ])
             };
-            Guid guid = ModelSwapLib.Swapper.SwapHandler.GetInstance().AddSwapper(swapper);
+            Guid guid1 = SwapperManager.GetInstance().AddSwapper(swapper);
             
             MelonLogger.Msg($"YourMod Initialized");
         }
