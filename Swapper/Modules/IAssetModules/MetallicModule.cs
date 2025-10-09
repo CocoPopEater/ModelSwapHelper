@@ -3,18 +3,20 @@ using UnityEngine;
 
 namespace ModelSwapLib.Swapper.Modules;
 
-public class MetallicModule : BaseModule
+public class MetallicModule : IAssetModule
 {
-    public MetallicModule(string assetPath) : base(assetPath)
+    public string AssetPath { get; set; }
+    public MetallicModule(string assetPath)
     {
+        this.AssetPath = assetPath;
     }
     
-    public MetallicModule() : base(string.Empty)
+    public MetallicModule()
     {
         
     }
 
-    public override void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, AssetBundle bundle)
     {
         Texture2D metallicTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (metallicTexture == null)

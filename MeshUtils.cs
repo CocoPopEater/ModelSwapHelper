@@ -2,7 +2,7 @@
 
 namespace ModelSwapLib;
 
-public class MeshUtils
+public static class MeshUtils
 {
     /// <summary>
         /// Moves the mesh without moving the game object
@@ -45,7 +45,7 @@ public class MeshUtils
         /// <param name="z">Rotate around the Z axis (Up/Down)</param>
         /// <param name="y">Rotate around the Y axis (Forward/Backward)</param>
         /// <returns>The rotated mesh</returns>
-        public static Mesh RotateMesh(Mesh mesh, float x, float z, float y)
+        public static Mesh RotateMesh(Mesh mesh, float x, float y, float z)
         {
             Quaternion qAngle = Quaternion.Euler(x, y, z);
             return RotateMesh(mesh, qAngle);
@@ -80,7 +80,7 @@ public class MeshUtils
         /// <param name="z">Scale along the Z axis (Up/Down)</param>
         /// <param name="y">Scale along the Y axis (Forward/Backward)</param>
         /// <returns>The scaled mesh</returns>
-        public static Mesh ScaleMesh(Mesh mesh, float x, float z, float y)
+        public static Mesh ScaleMesh(Mesh mesh, float x, float y, float z)
         {
             return ScaleMesh(mesh, new Vector3(x, y, z));
         }

@@ -11,28 +11,23 @@ namespace ModelSwapLib
 {
     public class Core : MelonMod
     {
-
         private static float reloadMessageStart = -1f;
-
+        
         public override void OnInitializeMelon()
         {
-            SwapperManager.GetInstance(); // Ensure SwapHandler has been initialized
             BundleManager.GetInstance(); // Ensure BundleManager has been initialized
-            MelonLogger.Msg("ModelSwapLib initialized.");
         }
-
+        
         public override void OnDeinitializeMelon()
         {
             BundleManager.GetInstance().Shutdown(); // Ensure BundleManager unloads all cached bundles and clears the dict
         }
-
+        
         public override void OnLateUpdate()
         {
-
             if (Keyboard.current != null && Keyboard.current.f5Key.wasPressedThisFrame)
             {
                 MelonLogger.Msg("Manual reload triggered.");
-                SwapperManager.GetInstance().StartActivate();
                 reloadMessageStart = Time.time;
                 MelonEvents.OnGUI.Subscribe(DrawReloadText, 100);
             }
@@ -49,12 +44,6 @@ namespace ModelSwapLib
             {
                 MelonEvents.OnGUI.Unsubscribe(DrawReloadText);
             }
-        }
-
-        public override void OnSceneWasInitialized(int buildIndex, string sceneName)
-        {
-            //debugging - MelonLogger.Msg($"Scene initialized: {sceneName} ({buildIndex})");
-            SwapperManager.GetInstance().StartActivate();
         }
     }
 }

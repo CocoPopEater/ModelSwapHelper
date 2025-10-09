@@ -3,18 +3,20 @@ using UnityEngine;
 
 namespace ModelSwapLib.Swapper.Modules;
 
-public class MeshModule : BaseModule
+public class MeshModule : IAssetModule
 {
-    public MeshModule(string assetPath) : base(assetPath)
+
+    public string AssetPath { get; set; }
+    public Vector3? Rotation { get; set; } = null;
+    public Vector3? Movement { get; set; } = null;
+    public MeshModule(string assetPath, Vector3? rotation = null, Vector3? movement = null)
     {
+        this.AssetPath = assetPath;
+        this.Rotation = rotation;
+        this.Movement = movement;
     }
 
-    public MeshModule() : base(string.Empty)
-    {
-        
-    }
-
-    public override void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, AssetBundle bundle)
     {
         Mesh mesh = bundle.LoadAsset<Mesh>(this.AssetPath);
         if (mesh == null)
@@ -25,7 +27,6 @@ public class MeshModule : BaseModule
         
         var smr = obj.GetComponent<SkinnedMeshRenderer>();
         if (smr == null) return;
-        
         smr.sharedMesh = mesh;
     }
 }

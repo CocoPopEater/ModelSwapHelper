@@ -3,18 +3,20 @@ using UnityEngine;
 
 namespace ModelSwapLib.Swapper.Modules;
 
-public class ColorDetailModule : BaseModule
+public class ColorDetailModule : IAssetModule
 {
-    public ColorDetailModule(string assetPath) : base(assetPath)
+    public string AssetPath { get; set; }
+    public ColorDetailModule(string assetPath)
     {
+        AssetPath = assetPath;
     }
     
-    public ColorDetailModule() : base(string.Empty)
+    public ColorDetailModule()
     {
         
     }
 
-    public override void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, AssetBundle bundle)
     {
         Texture2D colorDetailTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (colorDetailTexture == null)

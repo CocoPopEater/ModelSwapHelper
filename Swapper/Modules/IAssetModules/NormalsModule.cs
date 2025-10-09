@@ -3,18 +3,20 @@ using UnityEngine;
 
 namespace ModelSwapLib.Swapper.Modules;
 
-public class NormalsModule : BaseModule
+public class NormalsModule : IAssetModule
 {
-    public NormalsModule(string assetPath) : base(assetPath)
+    public string AssetPath { get; set; }
+    public NormalsModule(string assetPath)
     {
+        this.AssetPath = assetPath;
     }
     
-    public NormalsModule() : base(string.Empty)
+    public NormalsModule()
     {
         
     }
 
-    public override void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, AssetBundle bundle)
     {
         Texture2D normalTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (normalTexture == null)

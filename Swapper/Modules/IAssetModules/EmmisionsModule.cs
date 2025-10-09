@@ -3,18 +3,20 @@ using UnityEngine;
 
 namespace ModelSwapLib.Swapper.Modules;
 
-public class EmmisionsModule : BaseModule
+public class EmmisionsModule  : IAssetModule
 {
-    public EmmisionsModule(string assetPath) : base(assetPath)
+    public string AssetPath { get; set; }
+    public EmmisionsModule(string assetPath)
     {
+        this.AssetPath = assetPath;
     }
     
-    public EmmisionsModule() : base(string.Empty)
+    public EmmisionsModule()
     {
         
     }
 
-    public override void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, AssetBundle bundle)
     {
         Texture2D emissionsTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (emissionsTexture == null)

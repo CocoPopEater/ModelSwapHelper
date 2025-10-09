@@ -14,6 +14,8 @@ public class Swapper
     public List<IModule> Modules { get; set; } = new();
     
     public List<string> Deactivations { get; set; }
+    
+    public Guid SwapperGuid { get; internal set; }
 
     public void RunAllModules()
     {
@@ -33,38 +35,51 @@ public class Swapper
         
         foreach (IModule module in Modules)
         {
-            foreach (GameObject obj in objects)
+            switch (module)
             {
-                module.Apply(obj, bundle);
+                case IAssetModule assetModule:
+                    assetModule.ApplyAll(objects, bundle);
+                    break;
+                case ITransformModule transformModule:
+                    transformModule.ApplyAll(objects);
+                    break;
             }
-                
         }
 
         // Handle Deactivations
         if (Deactivations == null || Deactivations.Count == 0) return; // There are no objects to deactivate, just return
         
-        List<GameObject> deactivateObjects = new();
         foreach (string name in Deactivations)
         {
-            deactivateObjects.AddRange(Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
-                .Where(go => go.name == name));
-        }
-        
-        foreach (GameObject obj in deactivateObjects)
-        {
-            if(obj.activeSelf) obj.SetActive(false);
+            Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
+                .Where(go => go.name == name)
+                .ToList()
+                .ForEach(obj =>
+                {
+                    if (obj.activeSelf) obj.SetActive(false);
+                });
         }
     }
 
+    internal Guid GenerateSwapperGuid()
+    {
+        if (SwapperGuid == Guid.Empty)
+        {
+            SwapperGuid = Guid.NewGuid();
+        }
+        return SwapperGuid;
+    }
+    
     public bool Validate()
     {
         if(string.IsNullOrEmpty(ModName)) return false;
         if(ObjectNames == null || ObjectNames.Count == 0) return false;
         if(string.IsNullOrEmpty(BundleName)) return false;
-        if(Modules.Count == 0) return false;
+        if(Modules == null || Modules.Count == 0) return false;
         
-        if(!BundleName.EndsWith(".bundle")) BundleName = string.Concat(BundleName, ".bundle");
+        if(!BundleName.EndsWith(".bundle", StringComparison.OrdinalIgnoreCase)) BundleName = string.Concat(BundleName, ".bundle");
         
+        GenerateSwapperGuid();
         return true;
     }
 }
