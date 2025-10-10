@@ -75,7 +75,7 @@ public class Swapper
     {
         if(string.IsNullOrEmpty(ModName)) return false;
         if(ObjectNames == null || ObjectNames.Count == 0) return false;
-        if(string.IsNullOrEmpty(BundleName)) return false;
+        if(BundleName == null) return false;
         if(Modules == null || Modules.Count == 0) return false;
         
         if(!BundleName.EndsWith(".bundle")) BundleName = string.Concat(BundleName, ".bundle");
