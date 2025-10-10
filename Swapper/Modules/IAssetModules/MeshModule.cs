@@ -7,15 +7,11 @@ public class MeshModule : IAssetModule
 {
 
     public string AssetPath { get; set; }
-    public Vector3? Rotation { get; set; } = null;
-    public Vector3? Movement { get; set; } = null;
-    public MeshModule(string assetPath, Vector3? rotation = null, Vector3? movement = null)
+
+    public MeshModule(string assetPath)
     {
         this.AssetPath = assetPath;
-        this.Rotation = rotation;
-        this.Movement = movement;
     }
-
     public void Apply(GameObject obj, AssetBundle bundle)
     {
         Mesh mesh = bundle.LoadAsset<Mesh>(this.AssetPath);

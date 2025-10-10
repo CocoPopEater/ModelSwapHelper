@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text;
 using MelonLoader;
 using UnityEngine;
 
@@ -29,31 +30,20 @@ public class ObjectActionManager
     {
         if (SkipCache.Contains(obj.name)) yield break;
         // The instantiated object is not listed as skip
-        // Need to find SkinnedMeshRenderer
-
-        //var skinnedMeshRenderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
-        var renderers = obj.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        // Need to find SkinnedMeshRenderers
+        
+        var renderers = obj.GetComponentsInChildren<SkinnedMeshRenderer>(true)
+            .Where(smr => ObjectActions.ContainsKey(smr.gameObject.name))
+            .ToList();
+        
         if (renderers == null || renderers.Count == 0)
         {
             // this object has no SkinnedMeshRenderers
             SkipCache.Add(obj.name);
             yield break;
         }
-
-        // Run precheck to determine if any of the renderers have a swapper associated
-        bool associated = false;
-        foreach (var renderer in renderers)
-        {
-            if(ObjectActions.ContainsKey(renderer.gameObject.name)) associated = true;
-        }
-
-        if (!associated)
-        {
-            // The object contains no SkinnedMeshRenderers associated with a swapper
-            SkipCache.Add(obj.name);
-        }
         
-        // the list of SkinnedMeshRenderers is neither null nor empty
+        // the list of SkinnedMeshRenderers is not null or empty
         foreach (var renderer in renderers)
         {
             if(renderer == null) continue;

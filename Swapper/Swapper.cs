@@ -19,12 +19,7 @@ public class Swapper
 
     public void RunAllModules()
     {
-        var bundle = BundleManager.GetInstance().GetBundle(BundleName);
-        if (bundle == null)
-        {
-            MelonLogger.Error($"Failed to load AssetBundle from Mod: {ModName}\nSwapper Name: {SwapperName}");
-            return;
-        }
+        
         List<GameObject> objects = new();
         foreach (string name in ObjectNames)
         {
@@ -38,6 +33,12 @@ public class Swapper
             switch (module)
             {
                 case IAssetModule assetModule:
+                    var bundle = BundleManager.GetInstance().GetBundle(BundleName);
+                    if (bundle == null)
+                    {
+                        MelonLogger.Error($"Failed to load AssetBundle from Mod: {ModName}\nSwapper Name: {SwapperName}");
+                        return;
+                    }
                     assetModule.ApplyAll(objects, bundle);
                     break;
                 case ITransformModule transformModule:
