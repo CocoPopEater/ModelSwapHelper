@@ -40,7 +40,7 @@ namespace YourMod
             } else
             {
                 MelonLogger.Msg($"Successfully registered swapper: {swapper.SwapperName} with guid: {swapper.SwapperGuid}");
-                ObjectActionManager.GetInstance().SyncSkipCache(swapper); // Safe to call this after registering each swapper as it
+                ObjectActionManager.GetInstance().ClearSkipCache(swapper); // Call this after registering each swapper/batch of swappers as it
                                                                           // ensures the SkipCache doesnt contain objects you want swapped
             }
             

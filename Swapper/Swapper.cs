@@ -77,7 +77,7 @@ public class Swapper
         if(string.IsNullOrEmpty(BundleName)) return false;
         if(Modules == null || Modules.Count == 0) return false;
         
-        if(!BundleName.EndsWith(".bundle", StringComparison.OrdinalIgnoreCase)) BundleName = string.Concat(BundleName, ".bundle");
+        if(!BundleName.EndsWith(".bundle")) BundleName = string.Concat(BundleName, ".bundle");
         
         GenerateSwapperGuid();
         return true;

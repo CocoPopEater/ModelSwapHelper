@@ -19,7 +19,7 @@ public class HarmonyPatches
         
         var gameObject = __result.GameObject();
         if(gameObject == null) return;
-
+        
         MelonCoroutines.Start(ObjectActionManager.GetInstance().HandleObject(gameObject));
     }
 }

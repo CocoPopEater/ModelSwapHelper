@@ -31,27 +31,50 @@ public class ObjectActionManager
         // The instantiated object is not listed as skip
         // Need to find SkinnedMeshRenderer
 
-        var skinnedMeshRenderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
-        if(skinnedMeshRenderer == null) yield break;
-        if (!ObjectActions.TryGetValue(skinnedMeshRenderer.gameObject.name, out List<Swapper> swappers))
+        //var skinnedMeshRenderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
+        var renderers = obj.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        if (renderers == null || renderers.Count == 0)
         {
-            // the object is not in the swap list
-            // we can skip it on subsequent instantiations
+            // this object has no SkinnedMeshRenderers
             SkipCache.Add(obj.name);
             yield break;
         }
-        
-        if (swappers.Count == 0)
+
+        // Run precheck to determine if any of the renderers have a swapper associated
+        bool associated = false;
+        foreach (var renderer in renderers)
         {
-            // if the swapper count is 0, it might as well be null
-            SkipCache.Add(obj.name);
-            yield break;
+            if(ObjectActions.ContainsKey(renderer.gameObject.name)) associated = true;
         }
-        yield return new WaitForSeconds(0.01f);
-        
-        foreach (Swapper swapper in swappers)
+
+        if (!associated)
         {
-            swapper.RunAllModules();
+            // The object contains no SkinnedMeshRenderers associated with a swapper
+            SkipCache.Add(obj.name);
+        }
+        
+        // the list of SkinnedMeshRenderers is neither null nor empty
+        foreach (var renderer in renderers)
+        {
+            if(renderer == null) continue;
+
+            if (!ObjectActions.TryGetValue(renderer.gameObject.name, out List<Swapper> actions))
+            {
+                // no swapper list associated with this smr name
+                continue;
+            }
+
+            if (actions == null || actions.Count == 0)
+            {
+                continue;
+            }
+
+            yield return new WaitForSeconds(0.01f);
+
+            foreach (Swapper swapper in actions)
+            {
+                swapper.RunAllModules();
+            }
         }
     }
 
@@ -84,9 +107,7 @@ public class ObjectActionManager
     }
     
     /// <summary>
-    /// Will clear the SkipCache. Should prefer SyncSkipCache(Swapper swapper)
-    /// But if you add a swapper and proceed to lose the object reference before calling SyncSkipCache
-    /// This method can be used in lieu
+    /// Will clear the SkipCache and cause a re-evaluation of all newly instantiated objects.
     /// </summary>
     public void ClearSkipCache()
     {
@@ -109,19 +130,6 @@ public class ObjectActionManager
         {
             List<Swapper> eventSwappers = kvp.Value;
             if (eventSwappers.Contains(swapper)) eventSwappers.Remove(swapper);
-        }
-    }
-
-    /// <summary>
-    /// Loops through the Swappers ObjectNames and ensures they are removed from the SkipCache
-    /// This should be called whenever you register a new swapper
-    /// </summary>
-    /// <param name="swapper">The Swapper object to sync with</param>
-    public void SyncSkipCache(Swapper swapper)
-    {
-        foreach (string objectName in swapper.ObjectNames)
-        {
-            if(SkipCache.Contains(objectName)) SkipCache.Remove(objectName);
         }
     }
 }
