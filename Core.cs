@@ -16,6 +16,7 @@ namespace ModelSwapLib
         public override void OnInitializeMelon()
         {
             BundleManager.GetInstance(); // Ensure BundleManager has been initialized
+            Melon<Core>.Logger.Msg("Initialized");
         }
         
         public override void OnDeinitializeMelon()
@@ -27,7 +28,7 @@ namespace ModelSwapLib
         {
             if (Keyboard.current != null && Keyboard.current.f5Key.wasPressedThisFrame)
             {
-                MelonLogger.Msg("Manual reload triggered.");
+                Melon<Core>.Logger.Msg("Manual reload triggered.");
                 reloadMessageStart = Time.time;
                 MelonEvents.OnGUI.Subscribe(DrawReloadText, 100);
             }
