@@ -21,7 +21,7 @@ public class EmmisionsModule  : IAssetModule
         Texture2D emissionsTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (emissionsTexture == null)
         {
-            MelonLogger.Error($"Failed to load Emissions Texture2D: {this.AssetPath}");
+            Melon<Core>.Logger.Error($"Failed to load Emissions Texture2D: {this.AssetPath}");
             return;
         }
         

@@ -21,7 +21,7 @@ public class MetallicModule : IAssetModule
         Texture2D metallicTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (metallicTexture == null)
         {
-            MelonLogger.Error($"Failed to load Metallic Texture2D: {this.AssetPath}");
+            Melon<Core>.Logger.Error($"Failed to load Metallic Texture2D: {this.AssetPath}");
             return;
         }
         

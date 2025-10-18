@@ -17,7 +17,7 @@ public class MeshModule : IAssetModule
         Mesh mesh = bundle.LoadAsset<Mesh>(this.AssetPath);
         if (mesh == null)
         {
-            MelonLogger.Error($"Failed to load Mesh: {this.AssetPath}");
+            Melon<Core>.Logger.Error($"Failed to load Mesh: {this.AssetPath}");
             return;
         }
         

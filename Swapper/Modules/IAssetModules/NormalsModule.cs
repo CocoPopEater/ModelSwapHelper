@@ -21,7 +21,7 @@ public class NormalsModule : IAssetModule
         Texture2D normalTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (normalTexture == null)
         {
-            MelonLogger.Error($"Failed to load Normals Texture2D: {this.AssetPath}");
+            Melon<Core>.Logger.Error($"Failed to load Normals Texture2D: {this.AssetPath}");
             return;
         }
         
