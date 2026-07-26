@@ -15,7 +15,7 @@ public class MetallicModule : IAssetModule
         
     }
 
-    public void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, Il2CppAssetBundle bundle)
     {
         Texture2D metallicTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (metallicTexture == null)

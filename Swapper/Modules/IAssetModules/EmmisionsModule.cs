@@ -15,7 +15,7 @@ public class EmmisionsModule  : IAssetModule
         
     }
 
-    public void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, Il2CppAssetBundle bundle)
     {
         Texture2D emissionsTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (emissionsTexture == null)

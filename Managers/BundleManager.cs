@@ -21,7 +21,7 @@ public class BundleManager
         return _instance;
     }
     
-    private readonly Dictionary<string, AssetBundle> _bundles = new();
+    private readonly Dictionary<string, Il2CppAssetBundle> _bundles = new();
 
     internal void InitializeBundles()
     {
@@ -38,7 +38,7 @@ public class BundleManager
             {
                 string fileName = Path.GetFileName(file);
                 ConsoleUtils.Msg($"Found Bundle: {fileName}");
-                _bundles.Add(fileName, AssetBundle.LoadFromFile(file));
+                _bundles.Add(fileName, Il2CppAssetBundleManager.LoadFromFile(file));
             }
         }
         
@@ -58,7 +58,7 @@ public class BundleManager
     
     
     
-    internal AssetBundle GetBundle(Swapper.Swapper swapper)
+    internal Il2CppAssetBundle GetBundle(Swapper.Swapper swapper)
     {
         // Verifying bundle name format
         string validBundleName;

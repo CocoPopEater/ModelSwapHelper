@@ -15,7 +15,7 @@ public class ColorDetailModule : IAssetModule
         
     }
 
-    public void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, Il2CppAssetBundle bundle)
     {
         Texture2D colorDetailTexture = bundle.LoadAsset<Texture2D>(this.AssetPath);
         if (colorDetailTexture == null)

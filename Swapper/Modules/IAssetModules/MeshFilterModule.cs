@@ -10,7 +10,7 @@ public class MeshFilterModule : IAssetModule
     {
         this.AssetPath = assetPath;
     }
-    public void Apply(GameObject obj, AssetBundle bundle)
+    public void Apply(GameObject obj, Il2CppAssetBundle bundle)
     {
         Mesh mesh = bundle.LoadAsset<Mesh>(this.AssetPath);
         if (mesh == null)
