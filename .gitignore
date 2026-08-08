@@ -366,3 +366,4 @@ FodyWeavers.xsd
 /ThunderStoreOutput/manifest.json
 /ThunderStoreOutput/README.md
 /ThunderStoreOutput/ModelSwapLib.dll
+/Local.props

@@ -1,0 +1,5 @@
+<Project>
+    <PropertyGroup>
+        <JumpSpacePath>Path\To\Your\JumpSpaceFolder</JumpSpacePath>
+    </PropertyGroup>
+</Project>
